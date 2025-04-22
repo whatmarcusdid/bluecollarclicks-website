@@ -11,7 +11,8 @@
     "minify": "npm run minify:html && npm run minify:css",
     "minify:html": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true dist/index.html -o dist/index.html",
     "minify:css": "cleancss -o dist/styles.css dist/styles.css",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cypress run",
+    "cypress:open": "cypress open"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
   "devDependencies": {
     "prettier": "^3.0.0",
     "html-minifier": "^4.0.0",
-    "clean-css-cli": "^5.6.2"
+    "clean-css-cli": "^5.6.2",
+    "cypress": "^13.6.4"
   }
 } 
