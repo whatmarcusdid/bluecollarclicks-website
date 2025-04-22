@@ -6,11 +6,11 @@
   "scripts": {
     "start": "python3 -m http.server 8000",
     "build": "npm run clean && npm run copy && npm run minify",
-    "clean": "rm -rf dist",
-    "copy": "mkdir -p dist && cp -r images dist/ && cp index.html dist/ && cp styles.css dist/",
+    "clean": "rm -rf public",
+    "copy": "mkdir -p public && cp -r images public/ && cp index.html public/ && cp styles.css public/",
     "minify": "npm run minify:html && npm run minify:css",
-    "minify:html": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true dist/index.html -o dist/index.html",
-    "minify:css": "cleancss -o dist/styles.css dist/styles.css",
+    "minify:html": "html-minifier --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true public/index.html -o public/index.html",
+    "minify:css": "cleancss -o public/styles.css public/styles.css",
     "test": "cypress run",
     "cypress:open": "cypress open"
   },
