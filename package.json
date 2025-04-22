@@ -1,0 +1,28 @@
+{
+  "name": "bluecollarclicks-website",
+  "version": "1.0.0",
+  "description": "Blue Collar Clicks landing page with email collection",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whatmarcusdid/bluecollarclicks-website.git"
+  },
+  "keywords": [
+    "landing-page",
+    "static-website",
+    "email-collection"
+  ],
+  "author": "Marcus White",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/whatmarcusdid/bluecollarclicks-website/issues"
+  },
+  "homepage": "https://github.com/whatmarcusdid/bluecollarclicks-website#readme",
+  "devDependencies": {
+    "prettier": "^3.0.0"
+  }
+} 
