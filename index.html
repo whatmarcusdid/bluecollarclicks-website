@@ -29,10 +29,11 @@
             <p class="subheading">Blue Collar Clicks is launching soon. We're on a mission to help hard-working businesses like yours get more leads without the marketing BS. Our websites are built for blue-collar industries—with automation, performance-based pricing, and real results. Join the waitlist to be the first to know when we go live.</p>
 
             <!-- Email Form -->
-            <form class="waitlist-form">
-                <input type="email" placeholder="Enter your email to join the waitlist" required>
+            <form class="waitlist-form" id="waitlistForm">
+                <input type="email" id="email" placeholder="Enter your email to join the waitlist" required>
                 <button type="submit">Join the Waitlist</button>
             </form>
+            <div id="formMessage" class="form-message"></div>
         </div>
     </section>
 
@@ -49,5 +50,35 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('waitlistForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const formMessage = document.getElementById('formMessage');
+            
+            // Google Apps Script Web App URL
+            const scriptUrl = 'https://script.google.com/macros/s/AKfycbyWT9aaZmFkiyVZvaHL5S31B7yN6JRmh3eWE4nqXsGFao8WT5u2vWN-7L7IXT3aQok_/exec';
+            
+            fetch(scriptUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email: email })
+            })
+            .then(response => response.json())
+            .then(data => {
+                formMessage.textContent = 'Thank you for joining the waitlist!';
+                formMessage.style.color = '#D9F99D';
+                document.getElementById('email').value = '';
+            })
+            .catch(error => {
+                formMessage.textContent = 'Sorry, there was an error. Please try again.';
+                formMessage.style.color = '#ff6b6b';
+            });
+        });
+    </script>
 </body>
 </html> 
